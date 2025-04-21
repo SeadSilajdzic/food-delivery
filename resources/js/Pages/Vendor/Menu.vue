@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head } from "@inertiajs/vue3";
+import { Head, Link } from "@inertiajs/vue3";
 
 defineProps({
     categories: {
@@ -25,6 +25,9 @@ defineProps({
                     <div
                         class="p-6 text-gray-900 overflow-x-scroll flex flex-col gap-8"
                     >
+                        <Link class="btn btn-primary max-w-sm" :href="route('vendor.categories.create')">
+                            Add New Product Category
+                        </Link>
                         <div
                             v-for="category in categories"
                             :key="category.id"
@@ -37,7 +40,20 @@ defineProps({
                                     </div>
                                 </div>
                                 <div class="flex gap-4 items-center">
-                                    Edit / Delete Category Buttons: Coming Soon
+                                    <Link
+                                        :href="route('vendor.categories.edit', category)"
+                                        class="btn btn-secondary btn-sm"
+                                    >
+                                        Edit
+                                    </Link>
+                                    <Link
+                                        :href="route('vendor.categories.destroy', category)"
+                                        class="btn btn-danger btn-sm"
+                                        method="delete"
+                                        as="button"
+                                    >
+                                        Delete
+                                    </Link>
                                 </div>
                             </div>
                             <div>Add Product Button: Coming Soon</div>
