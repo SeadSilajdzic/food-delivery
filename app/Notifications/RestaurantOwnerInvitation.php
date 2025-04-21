@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Password;
@@ -46,8 +45,8 @@ class RestaurantOwnerInvitation extends Notification
                 'app' => config('app.name'),
             ]))
             ->markdown('mail.restaurant.owner-invitation', [
-                'setUrl'        => $url,
-                'restaurant'    => $this->restaurantName,
+                'setUrl' => $url,
+                'restaurant' => $this->restaurantName,
                 'requestNewUrl' => route('password.request'),
             ]);
 
