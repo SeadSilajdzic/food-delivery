@@ -70,7 +70,12 @@ defineProps({
                                     </td>
                                     <td>
                                         <Link
-                                            :href="route('admin.restaurants.edit', restaurant)"
+                                            :href="
+                                                route(
+                                                    'admin.restaurants.edit',
+                                                    restaurant,
+                                                )
+                                            "
                                             class="btn btn-secondary"
                                         >
                                             Edit

@@ -80,7 +80,7 @@ class RestaurantController extends Controller
 
         $restaurant->update([
             'city_id' => $validated['city'],
-            'name'    => $validated['restaurant_name'],
+            'name' => $validated['restaurant_name'],
             'address' => $validated['address'],
         ]);
 

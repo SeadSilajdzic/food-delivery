@@ -16,8 +16,8 @@ class UpdateRestaurantRequest extends FormRequest
     {
         return [
             'restaurant_name' => ['required', 'string', 'max:255'],
-            'city'            => ['required', 'numeric', 'exists:cities,id'],
-            'address'         => ['required', 'string', 'max:1000'],
+            'city' => ['required', 'numeric', 'exists:cities,id'],
+            'address' => ['required', 'string', 'max:1000'],
         ];
     }
 }
