@@ -28,11 +28,11 @@
     }
 
     .text-link {
-        @apply  text-blue-600 hover:underline;
+        @apply text-blue-600 hover:underline;
     }
 
     .form-group {
-        @apply flex flex-col gap-2
+        @apply flex flex-col gap-2;
     }
 
     input[type="text"],
@@ -47,6 +47,6 @@
     }
 
     .btn-primary {
-        @apply bg-primary-500 text-white hover:bg-primary-600 focus:bg-primary-600 active:bg-primary-500 focus:ring-primary-500
+        @apply bg-primary-500 text-white hover:bg-primary-600 focus:bg-primary-600 active:bg-primary-500 focus:ring-primary-500;
     }
 }

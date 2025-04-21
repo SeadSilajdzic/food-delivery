@@ -33,7 +33,11 @@ const showingNavigationDropdown = ref(false);
                             >
                                 <NavLink
                                     :href="route('admin.restaurants.index')"
-                                    :active="route().current('admin.restaurants.index')"
+                                    :active="
+                                        route().current(
+                                            'admin.restaurants.index',
+                                        )
+                                    "
                                 >
                                     Restaurants
                                 </NavLink>

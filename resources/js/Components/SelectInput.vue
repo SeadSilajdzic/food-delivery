@@ -1,40 +1,40 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref } from "vue";
 
 defineProps({
     modelValue: {
         type: String,
-        required: true
+        required: true,
     },
     options: {
         type: Array,
-        required: true
+        required: true,
     },
     optionValue: {
         type: String,
-        required: true
+        required: true,
     },
     optionLabel: {
         type: String,
-        required: true
+        required: true,
     },
     defaultOption: {
         type: Object,
-        required: false
-    }
-})
+        required: false,
+    },
+});
 
-defineEmits(['update:modelValue'])
+defineEmits(["update:modelValue"]);
 
-const input = ref(null)
+const input = ref(null);
 
 onMounted(() => {
-    if (input.value.hasAttribute('autofocus')) {
-        input.value.focus()
+    if (input.value.hasAttribute("autofocus")) {
+        input.value.focus();
     }
-})
+});
 
-defineExpose({ focus: () => input.value.focus() })
+defineExpose({ focus: () => input.value.focus() });
 </script>
 
 <template>
@@ -44,10 +44,19 @@ defineExpose({ focus: () => input.value.focus() })
         @change="$emit('update:modelValue', $event.target.value)"
         ref="input"
     >
-        <option v-if="defaultOption" disabled hidden :value="defaultOption[optionValue]">
+        <option
+            v-if="defaultOption"
+            disabled
+            hidden
+            :value="defaultOption[optionValue]"
+        >
             {{ defaultOption[optionLabel] }}
         </option>
-        <option v-for="option in options" :key="option[optionValue]" :value="option[optionValue]">
+        <option
+            v-for="option in options"
+            :key="option[optionValue]"
+            :value="option[optionValue]"
+        >
             {{ option[optionLabel] }}
         </option>
     </select>

@@ -1,12 +1,12 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import {Head, Link} from "@inertiajs/vue3";
+import { Head, Link } from "@inertiajs/vue3";
 
 defineProps({
     restaurants: {
-        type: Array
-    }
-})
+        type: Array,
+    },
+});
 </script>
 
 <template>
@@ -14,14 +14,19 @@ defineProps({
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Restaurants</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Restaurants
+            </h2>
         </template>
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6">
-                        <Link class="btn btn-primary" :href="route('admin.restaurants.create')">
+                        <Link
+                            class="btn btn-primary"
+                            :href="route('admin.restaurants.create')"
+                        >
                             Add New Restaurant
                         </Link>
                     </div>
@@ -38,7 +43,10 @@ defineProps({
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="restaurant in restaurants" :key="restaurant.id">
+                                <tr
+                                    v-for="restaurant in restaurants"
+                                    :key="restaurant.id"
+                                >
                                     <td>{{ restaurant.id }}</td>
                                     <td>{{ restaurant.name }}</td>
                                     <td>
@@ -49,7 +57,13 @@ defineProps({
                                     <td>{{ restaurant.address }}</td>
                                     <td>{{ restaurant.owner.name }}</td>
                                     <td>
-                                        <a :href="'mailto:' + restaurant.owner.email" class="text-link">
+                                        <a
+                                            :href="
+                                                'mailto:' +
+                                                restaurant.owner.email
+                                            "
+                                            class="text-link"
+                                        >
                                             {{ restaurant.owner.email }}
                                         </a>
                                     </td>

@@ -15,7 +15,7 @@ export default {
         extend: {
             colors: {
                 primary: colors.green,
-                danger: colors.red
+                danger: colors.red,
             },
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
