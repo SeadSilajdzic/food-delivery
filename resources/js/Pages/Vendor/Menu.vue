@@ -25,7 +25,10 @@ defineProps({
                     <div
                         class="p-6 text-gray-900 overflow-x-scroll flex flex-col gap-8"
                     >
-                        <Link class="btn btn-primary max-w-sm" :href="route('vendor.categories.create')">
+                        <Link
+                            class="btn btn-primary max-w-sm"
+                            :href="route('vendor.categories.create')"
+                        >
                             Add New Product Category
                         </Link>
                         <div
@@ -41,13 +44,23 @@ defineProps({
                                 </div>
                                 <div class="flex gap-4 items-center">
                                     <Link
-                                        :href="route('vendor.categories.edit', category)"
+                                        :href="
+                                            route(
+                                                'vendor.categories.edit',
+                                                category,
+                                            )
+                                        "
                                         class="btn btn-secondary btn-sm"
                                     >
                                         Edit
                                     </Link>
                                     <Link
-                                        :href="route('vendor.categories.destroy', category)"
+                                        :href="
+                                            route(
+                                                'vendor.categories.destroy',
+                                                category,
+                                            )
+                                        "
                                         class="btn btn-danger btn-sm"
                                         method="delete"
                                         as="button"
