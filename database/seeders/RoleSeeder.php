@@ -37,7 +37,11 @@ class RoleSeeder extends Seeder
 
     protected function createVendorRole(): void
     {
-        // Permission will be added as needed
-        $this->createRole(RoleName::VENDOR, collect());
+        $permissions = Permission::query()
+            ->where('name', 'like', 'category.%')
+            ->orWhere('name', 'like', 'product.%')
+            ->pluck('id');
+
+        $this->createRole(RoleName::VENDOR, $permissions);
     }
 }
