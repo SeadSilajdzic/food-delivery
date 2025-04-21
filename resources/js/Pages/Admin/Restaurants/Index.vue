@@ -24,6 +24,7 @@ defineProps({
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6">
                         <Link
+                            v-if="can('restaurant.create')"
                             class="btn btn-primary"
                             :href="route('admin.restaurants.create')"
                         >
@@ -70,6 +71,7 @@ defineProps({
                                     </td>
                                     <td>
                                         <Link
+                                            v-if="can('restaurant.update')"
                                             :href="
                                                 route(
                                                     'admin.restaurants.edit',

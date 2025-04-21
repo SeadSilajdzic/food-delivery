@@ -32,6 +32,7 @@ const showingNavigationDropdown = ref(false);
                                 class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
                             >
                                 <NavLink
+                                    v-if="can('restaurant.viewAny')"
                                     :href="route('admin.restaurants.index')"
                                     :active="
                                         route().current(
