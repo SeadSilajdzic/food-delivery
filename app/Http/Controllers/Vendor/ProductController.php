@@ -33,7 +33,7 @@ class ProductController extends Controller
     {
         return Inertia::render('Vendor/Products/Edit', [
             'categories' => Category::query()->get(['id', 'name']),
-            'product'    => $product,
+            'product' => $product,
         ]);
     }
 

@@ -1,27 +1,27 @@
 <script setup>
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
-import { Head, useForm } from '@inertiajs/vue3'
-import InputError from '@/Components/InputError.vue'
-import InputLabel from '@/Components/InputLabel.vue'
-import PrimaryButton from '@/Components/PrimaryButton.vue'
-import TextInput from '@/Components/TextInput.vue'
-import SelectInput from '@/Components/SelectInput.vue'
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import { Head, useForm } from "@inertiajs/vue3";
+import InputError from "@/Components/InputError.vue";
+import InputLabel from "@/Components/InputLabel.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import TextInput from "@/Components/TextInput.vue";
+import SelectInput from "@/Components/SelectInput.vue";
 const props = defineProps({
     categories: {
-        type: Array
+        type: Array,
     },
     category_id: {
-        type: String
-    }
-})
+        type: String,
+    },
+});
 const form = useForm({
     category_id: props.category_id,
-    name: '',
-    price: ''
-})
+    name: "",
+    price: "",
+});
 const submit = () => {
-    form.post(route('vendor.products.store'))
-}
+    form.post(route("vendor.products.store"));
+};
 </script>
 
 <template>
@@ -29,7 +29,9 @@ const submit = () => {
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Add New Product</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Add New Product
+            </h2>
         </template>
 
         <div class="py-12">
@@ -37,9 +39,15 @@ const submit = () => {
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900 overflow-x-scroll">
                         <div class="p-6 text-gray-900 overflow-x-scroll">
-                            <form @submit.prevent="submit" class="flex flex-col gap-4">
+                            <form
+                                @submit.prevent="submit"
+                                class="flex flex-col gap-4"
+                            >
                                 <div class="form-group">
-                                    <InputLabel for="category_id" value="Category" />
+                                    <InputLabel
+                                        for="category_id"
+                                        value="Category"
+                                    />
                                     <SelectInput
                                         id="category"
                                         v-model="form.category_id"
@@ -47,12 +55,14 @@ const submit = () => {
                                         option-value="id"
                                         option-label="name"
                                         :default-option="{
-                                          id: '',
-                                          name: 'Product Category'
+                                            id: '',
+                                            name: 'Product Category',
                                         }"
                                         :disabled="form.processing"
                                     />
-                                    <InputError :message="form.errors.category_id" />
+                                    <InputError
+                                        :message="form.errors.category_id"
+                                    />
                                 </div>
 
                                 <div class="form-group">
@@ -79,7 +89,9 @@ const submit = () => {
                                 </div>
 
                                 <div>
-                                    <PrimaryButton :disabled="form.processing"> Create New Product </PrimaryButton>
+                                    <PrimaryButton :disabled="form.processing">
+                                        Create New Product
+                                    </PrimaryButton>
                                 </div>
                             </form>
                         </div>

@@ -72,7 +72,11 @@ defineProps({
                             <div>
                                 <Link
                                     class="btn btn-secondary btn-sm"
-                                    :href="route('vendor.products.create', { category_id: category.id })"
+                                    :href="
+                                        route('vendor.products.create', {
+                                            category_id: category.id,
+                                        })
+                                    "
                                 >
                                     Add Product to {{ category.name }}
                                 </Link>
@@ -96,13 +100,23 @@ defineProps({
                                     </div>
                                     <div class="flex gap-4">
                                         <Link
-                                            :href="route('vendor.products.edit', product)"
+                                            :href="
+                                                route(
+                                                    'vendor.products.edit',
+                                                    product,
+                                                )
+                                            "
                                             class="btn btn-secondary btn-sm"
                                         >
                                             Edit
                                         </Link>
                                         <Link
-                                            :href="route('vendor.products.destroy', product)"
+                                            :href="
+                                                route(
+                                                    'vendor.products.destroy',
+                                                    product,
+                                                )
+                                            "
                                             class="btn btn-danger btn-sm"
                                             method="delete"
                                             as="button"
