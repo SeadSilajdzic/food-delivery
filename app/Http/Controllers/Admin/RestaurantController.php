@@ -40,19 +40,19 @@ class RestaurantController extends Controller
         $validated = $request->validated();
 
         DB::transaction(function () use ($validated) {
-             $user = User::query()->create([
-                 'name' => $validated['owner_name'],
-                 'email' => $validated['email'],
-                 'password' => '',
-             ]);
+            $user = User::query()->create([
+                'name' => $validated['owner_name'],
+                'email' => $validated['email'],
+                'password' => '',
+            ]);
 
-             $user->roles()->sync(Role::query()->where('name', RoleName::VENDOR->value)->first());
+            $user->roles()->sync(Role::query()->where('name', RoleName::VENDOR->value)->first());
 
-             $user->restaurant()->create([
-                 'city_id' => $validated['city_id'],
-                 'name' => $validated['restaurant_name'],
-                 'address' => $validated['address'],
-             ]);
+            $user->restaurant()->create([
+                'city_id' => $validated['city_id'],
+                'name' => $validated['restaurant_name'],
+                'address' => $validated['address'],
+            ]);
         });
 
         return to_route('admin.restaurants.index');
