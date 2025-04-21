@@ -13,6 +13,7 @@ Make sure you have the following installed:
 - Node.js & npm
 - MySQL or PostgreSQL
 - Laravel Herd (or Valet / XAMPP / WAMP / Docker — whatever works for you)
+- Mailtrap (or any other provider you like - was using this one for development purposes)
 
 ---
 
