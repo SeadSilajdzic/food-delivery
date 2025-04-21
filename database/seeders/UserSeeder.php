@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
         $vendor->restaurant()->create([
             'city_id' => City::query()->first()->id,
             'name' => 'Restaurant 001',
-            'address' => 'Address FSTC001'
+            'address' => 'Address FSTC001',
         ]);
     }
 }

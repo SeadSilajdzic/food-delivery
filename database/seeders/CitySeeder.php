@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\City;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class CitySeeder extends Seeder
@@ -22,10 +21,10 @@ class CitySeeder extends Seeder
             'Bosanski Novi', 'Široki Brijeg', 'Posušje', 'Livno', 'Jajce', 'Foča', 'Modriča',
             'Vitez', 'Čitluk', 'Kiseljak', 'Prozor-Rama', 'Gornji Vakuf-Uskoplje', 'Neum',
             'Odžak', 'Bosanski Petrovac', 'Kladanj', 'Maglaj', 'Olovo', 'Kotor Varoš',
-            'Kupres', 'Rogatica', 'Lopare', 'Zvornik', 'Ugljevik', 'Kalesija', 'Other'
+            'Kupres', 'Rogatica', 'Lopare', 'Zvornik', 'Ugljevik', 'Kalesija', 'Other',
         ];
 
-        foreach($cities as $city) {
+        foreach ($cities as $city) {
             City::query()->create(['name' => $city]);
         }
     }
