@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\RoleName;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreRestaurantRequest;
 use App\Models\City;
 use App\Models\Restaurant;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -27,5 +33,28 @@ class RestaurantController extends Controller
         return Inertia::render('Admin/Restaurants/Create', [
             'cities' => City::query()->get(['id', 'name']),
         ]);
+    }
+
+    public function store(StoreRestaurantRequest $request): RedirectResponse
+    {
+        $validated = $request->validated();
+
+        DB::transaction(function () use ($validated) {
+             $user = User::query()->create([
+                 'name' => $validated['owner_name'],
+                 'email' => $validated['email'],
+                 'password' => '',
+             ]);
+
+             $user->roles()->sync(Role::query()->where('name', RoleName::VENDOR->value)->first());
+
+             $user->restaurant()->create([
+                 'city_id' => $validated['city_id'],
+                 'name' => $validated['restaurant_name'],
+                 'address' => $validated['address'],
+             ]);
+        });
+
+        return to_route('admin.restaurants.index');
     }
 }
