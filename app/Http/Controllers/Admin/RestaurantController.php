@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\City;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -17,6 +18,15 @@ class RestaurantController extends Controller
 
         return Inertia::render('Admin/Restaurants/Index', [
             'restaurants' => Restaurant::query()->with('city', 'owner')->get(),
+        ]);
+    }
+
+    public function create(): Response
+    {
+        Gate::authorize('restaurant.create', Restaurant::class);
+
+        return Inertia::render('Admin/Restaurants/Create', [
+            'cities' => City::query()->get(['id', 'name']),
         ]);
     }
 }
