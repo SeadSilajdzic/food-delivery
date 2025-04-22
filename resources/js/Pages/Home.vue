@@ -30,7 +30,10 @@ defineProps({
                                 v-for="restaurant in restaurants"
                                 :key="restaurant.id"
                             >
-                                <Link href="#" class="flex flex-col gap-2">
+                                <Link
+                                    :href="route('restaurant', restaurant)"
+                                    class="flex flex-col gap-2"
+                                >
                                     <div>
                                         <img
                                             class="w-full aspect-video rounded-xl"
