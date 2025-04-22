@@ -1,11 +1,11 @@
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import Dropdown from "@/Components/Dropdown.vue";
 import DropdownLink from "@/Components/DropdownLink.vue";
 import NavLink from "@/Components/NavLink.vue";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
-import {Link} from "@inertiajs/vue3";
+import { Link } from "@inertiajs/vue3";
 
 const showingNavigationDropdown = ref(false);
 </script>
@@ -106,15 +106,13 @@ const showingNavigationDropdown = ref(false);
                                 <Link
                                     :href="route('login')"
                                     class="btn btn-secondary"
-                                >Login
-                                </Link
-                                >
+                                    >Login
+                                </Link>
                                 <Link
                                     :href="route('register')"
                                     class="btn btn-primary"
-                                >Register
-                                </Link
-                                >
+                                    >Register
+                                </Link>
                             </div>
                         </div>
 
@@ -179,7 +177,10 @@ const showingNavigationDropdown = ref(false);
                     </div>
 
                     <!-- Responsive Settings Options -->
-                    <div v-if="$page.props.auth.user" class="pt-4 pb-1 border-t border-gray-200">
+                    <div
+                        v-if="$page.props.auth.user"
+                        class="pt-4 pb-1 border-t border-gray-200"
+                    >
                         <div class="px-4">
                             <div class="text-base font-medium text-gray-800">
                                 {{ $page.props.auth.user.name }}
@@ -208,7 +209,7 @@ const showingNavigationDropdown = ref(false);
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
                 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                    <slot name="header"/>
+                    <slot name="header" />
                 </div>
             </header>
 
@@ -223,7 +224,7 @@ const showingNavigationDropdown = ref(false);
                     </div>
                 </div>
 
-                <slot/>
+                <slot />
             </main>
         </div>
     </div>

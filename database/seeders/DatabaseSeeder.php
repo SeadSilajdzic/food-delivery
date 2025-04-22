@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
 
     public function seedDemoRestaurants()
     {
-        $products   = Product::factory(7);
+        $products = Product::factory(7);
         $categories = Category::factory(5)->has($products);
         $restaurant = Restaurant::factory()->has($categories);
 

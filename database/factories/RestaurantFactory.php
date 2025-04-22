@@ -22,7 +22,7 @@ class RestaurantFactory extends Factory
 
         return [
             'city_id' => $cities->random(),
-            'name'    => fake()->company(),
+            'name' => fake()->company(),
             'address' => fake()->address(),
         ];
     }
