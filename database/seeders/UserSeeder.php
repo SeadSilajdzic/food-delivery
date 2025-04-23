@@ -49,8 +49,8 @@ class UserSeeder extends Seeder
     public function createCustomerUser(): void
     {
         $vendor = User::query()->create([
-            'name'     => 'Loyal Customer',
-            'email'    => 'customer@customer.com',
+            'name' => 'Loyal Customer',
+            'email' => 'customer@customer.com',
             'password' => bcrypt('password'),
         ]);
 
