@@ -55,7 +55,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink
                                     v-if="can('order.viewAny')"
                                     :href="route('customer.orders.index')"
-                                    :active="route().current('customer.orders.index')"
+                                    :active="
+                                        route().current('customer.orders.index')
+                                    "
                                 >
                                     My Orders
                                 </NavLink>

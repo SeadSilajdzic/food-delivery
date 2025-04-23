@@ -11,11 +11,11 @@ const removeProduct = (uuid) => {
     form.post(route("customer.cart.remove", uuid), { preserveScroll: true });
 };
 
-const order = useForm({})
+const order = useForm({});
 
 const placeOrder = () => {
-    order.post(route('customer.orders.store'))
-}
+    order.post(route("customer.orders.store"));
+};
 </script>
 
 <template>
@@ -80,7 +80,9 @@ const placeOrder = () => {
                             </div>
                         </div>
                         <div class="mt-4" v-if="$page.props.cart.items.length">
-                            <PrimaryButton type="button" @click="placeOrder">Place Order</PrimaryButton>
+                            <PrimaryButton type="button" @click="placeOrder"
+                                >Place Order</PrimaryButton
+                            >
                         </div>
                     </div>
                 </div>
