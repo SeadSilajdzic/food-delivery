@@ -43,9 +43,7 @@ const removeProduct = (uuid) => {
                                 <div class="flex flex-col">
                                     <div>{{ product.name }}</div>
                                     <div>
-                                        {{
-                                            (product.price / 100).toFixed(2)
-                                        }}
+                                        {{ (product.price / 100).toFixed(2) }}
                                         &euro;
                                     </div>
                                 </div>
@@ -71,9 +69,7 @@ const removeProduct = (uuid) => {
                         >
                             <div>Total</div>
                             <div>
-                                {{
-                                    ($page.props.cart.total / 100).toFixed(2)
-                                }}
+                                {{ ($page.props.cart.total / 100).toFixed(2) }}
                                 &euro;
                             </div>
                         </div>
