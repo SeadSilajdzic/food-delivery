@@ -19,3 +19,4 @@ Route::get('restaurant/{restaurant}', [RestaurantController::class, 'show'])
 require __DIR__.'/auth.php';
 require __DIR__.'/admin.php';
 require __DIR__.'/vendor.php';
+require __DIR__.'/customer.php';

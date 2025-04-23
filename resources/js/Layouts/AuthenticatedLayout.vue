@@ -52,14 +52,36 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Restaurant menu
                                 </NavLink>
+                                <NavLink
+                                    v-if="can('order.viewAny')"
+                                    :href="route('customer.orders.index')"
+                                    :active="
+                                        route().current('customer.orders.index')
+                                    "
+                                >
+                                    My Orders
+                                </NavLink>
                             </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <div
                                 v-if="$page.props.auth.user"
-                                class="relative ms-3"
+                                class="relative ms-3 flex"
                             >
+                                <Link
+                                    v-if="can('cart.add')"
+                                    :href="route('customer.cart.index')"
+                                    class="btn btn-primary"
+                                >
+                                    View basket
+                                    {{
+                                        ($page.props.cart.total / 100).toFixed(
+                                            2,
+                                        )
+                                    }}
+                                    &euro;
+                                </Link>
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
