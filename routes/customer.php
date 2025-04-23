@@ -4,8 +4,8 @@ use App\Http\Controllers\Customer\CartController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
-    'prefix'     => 'customer',
-    'as'         => 'customer.',
+    'prefix' => 'customer',
+    'as' => 'customer.',
     'middleware' => ['auth'],
 ], function () {
     Route::get('cart', [CartController::class, 'index'])->name('cart.index');

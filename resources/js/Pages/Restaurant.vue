@@ -1,9 +1,9 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
-import { Head, usePage, useForm } from '@inertiajs/vue3'
+import { Head, usePage, useForm } from "@inertiajs/vue3";
 
-const page = usePage()
-const form = useForm({})
+const page = usePage();
+const form = useForm({});
 
 defineProps({
     restaurant: {
@@ -12,17 +12,21 @@ defineProps({
 });
 
 const addProduct = (product) => {
-    form.post(route('customer.cart.add', product), {
+    form.post(route("customer.cart.add", product), {
         preserveScroll: true,
         onError: () => {
-            if (confirm(`This will remove your ${page.props.cart.restaurant_name} order.`)) {
-                form.delete(route('customer.cart.destroy'), {
-                    onSuccess: () => addProduct(product)
-                })
+            if (
+                confirm(
+                    `This will remove your ${page.props.cart.restaurant_name} order.`,
+                )
+            ) {
+                form.delete(route("customer.cart.destroy"), {
+                    onSuccess: () => addProduct(product),
+                });
             }
-        }
-    })
-}
+        },
+    });
+};
 </script>
 
 <template>
@@ -65,12 +69,21 @@ const addProduct = (product) => {
                                         </div>
                                         <div class="">
                                             <button
-                                                v-if="can('cart.add') || !$page.props.auth.user"
+                                                v-if="
+                                                    can('cart.add') ||
+                                                    !$page.props.auth.user
+                                                "
                                                 @click="addProduct(product)"
                                                 class="btn btn-primary btn-sm"
                                                 type="button"
                                             >
-                                                Add {{ (product.price / 100).toFixed(2) }} &euro;
+                                                Add
+                                                {{
+                                                    (
+                                                        product.price / 100
+                                                    ).toFixed(2)
+                                                }}
+                                                &euro;
                                             </button>
                                         </div>
                                         <div class="grow flex items-end">

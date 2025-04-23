@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Inertia\Inertia;
@@ -39,23 +38,23 @@ class CartController extends Controller
         $restaurant = $product->category->restaurant;
 
         $cart = session('cart', [
-            'items'           => [],
-            'total'           => 0,
+            'items' => [],
+            'total' => 0,
             'restaurant_name' => '',
-            'restaurant_id'   => '',
+            'restaurant_id' => '',
         ]);
 
         $validator = Validator::make($cart, [
-            'items'                 => ['array'],
-            'items.*.restaurant_id' => ['required', 'in:' . $restaurant->id],
+            'items' => ['array'],
+            'items.*.restaurant_id' => ['required', 'in:'.$restaurant->id],
         ]);
 
         if ($validator->fails()) {
             return back()->withErrors(['message' => 'Can\'t add product from different vendor.']);
         }
 
-        $item                  = $product->toArray();
-        $item['uuid']          = (string) str()->uuid();
+        $item = $product->toArray();
+        $item['uuid'] = (string) str()->uuid();
         $item['restaurant_id'] = $restaurant->id;
 
         session()->push('cart.items', $item);

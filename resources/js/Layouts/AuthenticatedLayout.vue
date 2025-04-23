@@ -65,7 +65,13 @@ const showingNavigationDropdown = ref(false);
                                     :href="route('customer.cart.index')"
                                     class="btn btn-primary"
                                 >
-                                    View basket {{ ($page.props.cart.total / 100).toFixed(2) }} &euro;
+                                    View basket
+                                    {{
+                                        ($page.props.cart.total / 100).toFixed(
+                                            2,
+                                        )
+                                    }}
+                                    &euro;
                                 </Link>
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
