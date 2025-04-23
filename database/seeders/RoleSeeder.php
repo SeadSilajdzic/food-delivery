@@ -48,7 +48,11 @@ class RoleSeeder extends Seeder
 
     protected function createCustomerRole(): void
     {
-        $permissions = Permission::query()->where('name', 'cart.add')->get();
+        $permissions = Permission::query()->whereIn('name', [
+            'cart.add',
+            'order.viewAny',
+            'order.create',
+        ])->get();
 
         $this->createRole(RoleName::CUSTOMER, $permissions);
     }
