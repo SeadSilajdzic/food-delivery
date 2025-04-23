@@ -29,6 +29,7 @@ export default [
                 setImmediate: true,
                 Buffer: true,
                 route: true,
+                confirm: true,
             },
         },
         plugins: {
