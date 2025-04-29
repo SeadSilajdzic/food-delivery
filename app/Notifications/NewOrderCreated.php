@@ -6,7 +6,6 @@ use App\Models\Order;
 use App\Models\Restaurant;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Collection;
@@ -16,8 +15,11 @@ class NewOrderCreated extends Notification
     use Queueable;
 
     protected Order $order;
+
     protected Restaurant $restaurant;
+
     protected Collection $products;
+
     protected User $customer;
 
     /**
@@ -25,10 +27,10 @@ class NewOrderCreated extends Notification
      */
     public function __construct(Order $order)
     {
-        $this->order      = $order;
+        $this->order = $order;
         $this->restaurant = $order->restaurant;
-        $this->products   = $order->products;
-        $this->customer   = $order->customer;
+        $this->products = $order->products;
+        $this->customer = $order->customer;
     }
 
     /**
@@ -51,10 +53,10 @@ class NewOrderCreated extends Notification
                 'restaurant_name' => $this->restaurant->name,
             ]))
             ->markdown('mail.order.new-order-created', [
-                'order'      => $this->order,
+                'order' => $this->order,
                 'restaurant' => $this->restaurant,
-                'products'   => $this->products,
-                'customer'   => $this->customer,
+                'products' => $this->products,
+                'customer' => $this->customer,
             ]);
     }
 }
