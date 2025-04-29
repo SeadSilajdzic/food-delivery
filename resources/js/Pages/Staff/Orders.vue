@@ -79,9 +79,7 @@ const updateStatus = (order, status) => {
                                     <td>{{ order.customer.name }}</td>
                                     <td>
                                         <div class="whitespace-nowrap">
-                                            {{
-                                                (order.total / 100).toFixed(2)
-                                            }}
+                                            {{ (order.total / 100).toFixed(2) }}
                                             &euro;
                                         </div>
                                     </td>
@@ -195,9 +193,7 @@ const updateStatus = (order, status) => {
                                     <td>{{ order.customer.name }}</td>
                                     <td>
                                         <div class="whitespace-nowrap">
-                                            {{
-                                                (order.total / 100).toFixed(2)
-                                            }}
+                                            {{ (order.total / 100).toFixed(2) }}
                                             &euro;
                                         </div>
                                     </td>
