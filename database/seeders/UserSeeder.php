@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         $this->createAdminUser();
         $this->createVendorUser();
         $this->createCustomerUser();
+        $this->createStaffUser();
     }
 
     public function createAdminUser(): void
@@ -55,5 +56,16 @@ class UserSeeder extends Seeder
         ]);
 
         $vendor->roles()->sync(Role::query()->where('name', RoleName::CUSTOMER->value)->first());
+    }
+
+    public function createStaffUser(): void
+    {
+        $vendor = User::query()->create([
+            'name' => 'Staff user',
+            'email' => 'staff@staff.com',
+            'password' => bcrypt('password'),
+        ]);
+
+        $vendor->roles()->sync(Role::query()->where('name', RoleName::STAFF->value)->first());
     }
 }
