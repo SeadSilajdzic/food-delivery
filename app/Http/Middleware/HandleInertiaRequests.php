@@ -43,7 +43,7 @@ class HandleInertiaRequests extends Middleware
                 'restaurant_name' => '',
                 'restaurant_id' => '',
             ]),
-            'is_vendor'   => $request->user()?->isVendor(),
+            'is_vendor' => $request->user()?->isVendor(),
 
         ];
     }
