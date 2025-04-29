@@ -28,8 +28,8 @@ class OrderController extends Controller
 
         return Inertia::render('Staff/Orders', [
             'current_orders' => $currentOrders,
-            'past_orders'    => $pastOrders,
-            'order_status'   => OrderStatus::toArray(),
+            'past_orders' => $pastOrders,
+            'order_status' => OrderStatus::toArray(),
         ]);
     }
 

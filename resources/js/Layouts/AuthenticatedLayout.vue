@@ -78,7 +78,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink
                                     v-if="can('order.update')"
                                     :href="route('staff.orders.index')"
-                                    :active="route().current('staff.orders.index')"
+                                    :active="
+                                        route().current('staff.orders.index')
+                                    "
                                 >
                                     Restaurant Orders
                                 </NavLink>
