@@ -45,7 +45,7 @@ class RoleSeeder extends Seeder
             ->orWhereIn('name', [
                 'user.create',
             ])
-        ->pluck('id');
+            ->pluck('id');
 
         $this->createRole(RoleName::VENDOR, $permissions);
     }
