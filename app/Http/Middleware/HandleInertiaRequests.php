@@ -34,6 +34,8 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
                 'permissions' => $request->user()?->permissions() ?? [],
+                'is_vendor' => $request->user()?->isVendor(),
+
             ],
 
             'status' => session('status'),
@@ -43,7 +45,6 @@ class HandleInertiaRequests extends Middleware
                 'restaurant_name' => '',
                 'restaurant_id' => '',
             ]),
-            'is_vendor' => $request->user()?->isVendor(),
 
         ];
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Vendor;
 
+use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
