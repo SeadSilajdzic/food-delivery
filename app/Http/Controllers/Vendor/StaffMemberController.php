@@ -18,6 +18,7 @@ class StaffMemberController extends Controller
     public function index(): Response
     {
         Gate::authorize('user.viewAny');
+
         return Inertia::render('Vendor/Staff/Show', [
             'staff' => auth()->user()->restaurant->staff,
         ]);
@@ -50,7 +51,7 @@ class StaffMemberController extends Controller
         Gate::authorize('user.delete');
 
         $restaurant = auth()->user()->restaurant;
-        $member     = $restaurant->staff()->findOrFail($staffMemberId);
+        $member = $restaurant->staff()->findOrFail($staffMemberId);
 
         $member->roles()->sync([]);
         $member->delete();

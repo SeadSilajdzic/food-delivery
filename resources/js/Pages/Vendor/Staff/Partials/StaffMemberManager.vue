@@ -1,19 +1,19 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3'
-import DangerButton from '@/Components/DangerButton.vue'
+import { useForm } from "@inertiajs/vue3";
+import DangerButton from "@/Components/DangerButton.vue";
 
 defineProps({
     members: {
         type: Array,
-        required: true
-    }
-})
+        required: true,
+    },
+});
 
-const form = useForm({})
+const form = useForm({});
 
 const removeMember = (member) => {
-    form.delete(route('vendor.staff-members.destroy', member))
-}
+    form.delete(route("vendor.staff-members.destroy", member));
+};
 </script>
 
 <template>
@@ -21,7 +21,9 @@ const removeMember = (member) => {
         <header>
             <h2 class="text-lg font-medium text-gray-900">Team Members</h2>
 
-            <p class="mt-1 text-sm text-gray-600">All the people who are part of this restaurant.</p>
+            <p class="mt-1 text-sm text-gray-600">
+                All the people who are part of this restaurant.
+            </p>
         </header>
         <div class="mt-6 space-y-6">
             <div v-for="member in members" :key="member.id">

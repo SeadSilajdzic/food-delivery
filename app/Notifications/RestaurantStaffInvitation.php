@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
@@ -39,11 +38,11 @@ class RestaurantStaffInvitation extends Notification
         return (new MailMessage)
             ->subject(__('You have been invited to :restaurant staff members on :app', [
                 'restaurant' => $this->restaurantName,
-                'app'        => config('app.name'),
+                'app' => config('app.name'),
             ]))
             ->markdown('mail.restaurant.staff-invitation', [
-                'setUrl'        => $this->resetUrl($notifiable),
-                'restaurant'    => $this->restaurantName,
+                'setUrl' => $this->resetUrl($notifiable),
+                'restaurant' => $this->restaurantName,
                 'requestNewUrl' => route('password.request'),
             ]);
     }
